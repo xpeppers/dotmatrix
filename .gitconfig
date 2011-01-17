@@ -37,5 +37,5 @@
 [rebase]
 	autosquash = true
 [user]
-	email = dev@hashrocket.com
-	name = "Hashrocket Workstation"
+	email = orione-team@xpeppers.com
+	name = "XPeppers Workstation"
