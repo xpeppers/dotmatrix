@@ -74,15 +74,15 @@ alias ..='cd ..'
 alias spec='spec -c'
 alias heroku='nocorrect heroku'
 
-# hashrocket dev env
-export HASHROCKET_DIR="$HOME/hashrocket"
+# xpeppers dev env
+export XPEPPERS_DIR="$HOME/hashrocket"
 
 # import the hashrocket rc file, if present
-hrc="$HASHROCKET_DIR/dotmatrix/.hashrc"
+hrc="$XPEPPERS_DIR/dotmatrix/.hashrc"
 [[ -a $hrc ]] && source $hrc
 
 # set cd autocompletion to commonly visited directories
-cdpath=(~ ~/src $DEV_DIR $HASHROCKET_DIR)
+cdpath=(~ ~/src $DEV_DIR $XPEPPERS_DIR)
 
 # load from Rubygems
 export RUBYOPT='rubygems'

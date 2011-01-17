@@ -1,8 +1,8 @@
-# ~/.hashrc
+# ~/.xpeppersrc
 # vim:set ft=sh sw=2 sts=2:
 
-[ -e "$HASHROCKET_DIR" ] || HASHROCKET_DIR="$HOME/hashrocket"
-export HASHROCKET_DIR
+[ -e "$XPEPPERS_DIR" ] || XPEPPERS_DIR="$HOME/xpeppers"
+export XPEPPERS_DIR
 
 for dir in /opt/local/bin /usr/local/bin "$HOME/bin"; do
   case "$PATH:" in
@@ -17,44 +17,26 @@ for dir in /usr/local/sbin /opt/local/sbin; do
   esac
 done
 
-HASHROCKET_AUTHOR_ALOWE="Adam Lowe"
-HASHROCKET_AUTHOR_BERNERDSCHAEFER="Bernerd Schaefer"
-HASHROCKET_AUTHOR_BIGTIGER="Jim Remsik"
-HASHROCKET_AUTHOR_CAMEROND="Cameron Daigle"
-HASHROCKET_AUTHOR_CALEBCORNMAN="Caleb Cornman"
-HASHROCKET_AUTHOR_DAVEOTT="Dave Ott"
-HASHROCKET_AUTHOR_DELITESCERE="Josh Graham"
-HASHROCKET_AUTHOR_DESI="Desi McAdam"
-HASHROCKET_AUTHOR_DURRAN="Durran Jordan"
-HASHROCKET_AUTHOR_JGDAVEY="Joshua Davey"
-HASHROCKET_AUTHOR_L4RK="Jon Larkowski"
-HASHROCKET_AUTHOR_LEOSOTO="Leo Soto"
-HASHROCKET_AUTHOR_LESHILL="Les Hill"
-HASHROCKET_AUTHOR_LI0N="Mark Smith"
-HASHROCKET_AUTHOR_MATTONRAILS="Matthew Conway"
-HASHROCKET_AUTHOR_MATTSACKS="Matt Sacks"
-HASHROCKET_AUTHOR_NARWEN="Thais Camilo"
-HASHROCKET_AUTHOR_OBIE="Obie Fernandez"
-HASHROCKET_AUTHOR_PAULELLIOTT="Paul Elliott"
-HASHROCKET_AUTHOR_RBXBX="Robert Pitts"
-HASHROCKET_AUTHOR_SANDRO="Sandro Turriate"
-HASHROCKET_AUTHOR_SHANERILEY="Shane Riley"
-HASHROCKET_AUTHOR_SHAYARNETT="Shay Arnett"
-HASHROCKET_AUTHOR_SUPASPOIDA="Lar Van Der Jagt"
-HASHROCKET_AUTHOR_THERUBYMUG="Rogelio J. Samour"
-HASHROCKET_AUTHOR_TPOPE="Tim Pope"
-HASHROCKET_AUTHOR_VEEZUS="Veezus Kreist"
-HASHROCKET_AUTHOR_VOXDOLO="Stephen Caudill"
-HASHROCKET_AUTHOR_WGIBBS="Wes Gibbs"
+XPEPPERS_AUTHOR_ANK="Antonio Carpentieri"
+XPEPPERS_AUTHOR_DIP="Pietro Di Bello"
+XPEPPERS_AUTHOR_FRO="Fabiana Romagnoli"
+XPEPPERS_AUTHOR_FRJ="Jacopo Franzoi"
+XPEPPERS_AUTHOR_GUM="Marco Gulino"
+XPEPPERS_AUTHOR_TOT="Tommaso Torti"
+XPEPPERS_AUTHOR_SKA="Andrea Schiavini"
+XPEPPERS_AUTHOR_MAV="Matteo Vaccari"
+XPEPPERS_AUTHOR_QUA="Alberto Quario"
+XPEPPERS_AUTHOR_ILO="Ivan Lombardi Borgia"
+XPEPPERS_AUTHOR_LUP="Luca Pucacco"
 
 hcd() {
-  cd "$HASHROCKET_DIR/$1"
+  cd "$XPEPPERS_DIR/$1"
 }
 
 hpair() {
   local name email args initials author ret
   name=""
-  email="dev"
+  email="orione-team"
   if [ -n "$ZSH_VERSION" ]; then
     eval 'args=(${(i)@})'
   else
@@ -65,8 +47,8 @@ hpair() {
     author=
     case "x$arg" in
       x-h)
-      echo 'hpair rocketeer1 rocketeer2'
-      echo 'hpair rocketeer1 gueststar1="Real Name"'
+      echo 'hpair xpepper1 xpeppers2'
+      echo 'hpair xpepper1 gueststar1="Real Name"'
       echo 'hpair -u # go solo'
       echo 'hpair    # status'
       return 1
@@ -85,7 +67,7 @@ hpair() {
       ;;
       [^-]*)
       initials="`echo "$arg"|tr a-z A-Z`"
-      eval "author=\"\$HASHROCKET_AUTHOR_$initials\""
+      eval "author=\"\$XPEPPERS_AUTHOR_$initials\""
       ;;
     esac
     if [ -z "$author" ]; then
@@ -96,7 +78,7 @@ hpair() {
     email="$email+`echo "$initials"|tr A-Z a-z`"
   done
   name="`echo $name|sed -e 's/^ *and *//'`"
-  email="$email@hashrocket.com"
+  email="$email@xpeppers.com"
   case "$ret" in
     unsetenv) unset GIT_AUTHOR_NAME GIT_AUTHOR_EMAIL
     rm -f "$HOME/.hpairrc"
@@ -137,14 +119,14 @@ git() {
 hclone() {
   local url basename example
   basename="`basename $1 .git`"
-  if [ ! -d "$HASHROCKET_DIR/$basename" ]; then
+  if [ ! -d "$XPEPPERS_DIR/$basename" ]; then
     case "$1" in
       *:*) url="$1" ;;
       */*) url="git@github.com:$1.git" ;;
-      *)   url="git@github.com:hashrocket/$1.git" ;;
+      *)   url="git@github.com:xpeppers/$1.git" ;;
     esac
-    git clone "$url" "$HASHROCKET_DIR/$basename" || return 1
-    for example in "$HASHROCKET_DIR/$basename"/config/*.example.yml; do
+    git clone "$url" "$XPEPPERS_DIR/$basename" || return 1
+    for example in "$XPEPPERS_DIR/$basename"/config/*.example.yml; do
       cp "$example" "${example%.example.yml}.yml"
     done
   fi
@@ -168,11 +150,11 @@ if [ -n "$BASH_VERSION" ]; then
   {
     local cur projects
 
-    [ -r "$HASHROCKET_DIR" ] || return 0
+    [ -r "$XPEPPERS_DIR" ] || return 0
 
     eval 'COMPREPLY=()'
     cur=${COMP_WORDS[COMP_CWORD]}
-    projects=$(\ls "$HASHROCKET_DIR")
+    projects=$(\ls "$XPEPPERS_DIR")
 
     if [ $COMP_CWORD -eq 1 ]; then
       eval 'COMPREPLY=( $(compgen -o filenames -W "$projects" $cur) )'
@@ -182,8 +164,8 @@ if [ -n "$BASH_VERSION" ]; then
   }
   complete -F _hcd hcd
 elif [ -n "$ZSH_VERSION" ]; then
-  #compdef '_files -W "$HASHROCKET_DIR"' hcd
-  compctl -/ -W "$HASHROCKET_DIR" hcd
+  #compdef '_files -W "$XPEPPERS_DIR"' hcd
+  compctl -/ -W "$XPEPPERS_DIR" hcd
 fi
 
 rails_root() {
