@@ -75,10 +75,10 @@ alias spec='spec -c'
 alias heroku='nocorrect heroku'
 
 # xpeppers dev env
-export XPEPPERS_DIR="$HOME/hashrocket"
+export XPEPPERS_DIR="$HOME/xpeppers"
 
 # import the hashrocket rc file, if present
-hrc="$XPEPPERS_DIR/dotmatrix/.hashrc"
+hrc="$XPEPPERS_DIR/dotmatrix/.xpeppersrc"
 [[ -a $hrc ]] && source $hrc
 
 # set cd autocompletion to commonly visited directories
