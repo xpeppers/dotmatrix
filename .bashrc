@@ -38,3 +38,23 @@ if [ -f $git_completion ]; then
 fi
 
 [ ! -f "$HOME/.bashrc.local" ] || . "$HOME/.bashrc.local"
+
+export PATH="/usr/local/ElasticLoadBalancing/bin:$PATH"
+export AWS_ELB_HOME="/usr/local/ElasticLoadBalancing"
+export PATH="/usr/local/ec2-api-tools/bin:$PATH"
+export EC2_HOME="/usr/local/ec2-api-tools"
+export PATH="/usr/local/RDSCli/bin:$PATH"
+export AWS_RDS_HOME="/usr/local/RDSCli"
+export PATH="/usr/local/ec2-ami-tools/bin:$PATH"
+export EC2_AMITOOL_HOME="/usr/local/ec2-ami-tools"
+export PATH="/usr/local/CloudWatch/bin:$PATH"
+export AWS_CLOUDWATCH_HOME="/usr/local/CloudWatch"
+export PATH="/usr/local/AutoScaling/bin:$PATH"
+export AWS_AUTO_SCALING_HOME="/usr/local/AutoScaling"
+export PATH=$PATH:'/usr/local/AutoScaling/sbin'
+export JAVA_HOME='/Library/Java/Home/'
+
+source ~/.aliasesrc
+
+# This loads RVM into a shell session
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
