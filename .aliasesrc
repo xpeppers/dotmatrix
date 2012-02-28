@@ -27,10 +27,10 @@ alias glod='git log --oneline --decorate'
 alias gitdiff='git diff -w | mate'
 
 # PROJECTS
-
+alias workspace='cd ~/Documents/workspace'
 alias epi='cd ~/Documents/workspace/episrl/epistore; source ~/.epistore'
 alias tsp='cd ~/Documents/workspace/tuttosport; source ~/.tuttosport'
-alias ttg='cd ~/Documents/workspace/ttg_campagna_vendite; rvm use 1.8.7-p302@ttg --create'
-alias jbb='cd ~/Documents/workspace/job-board; rvm use 1.9.3-p125@job_board --create'
-alias me='script/mate.sh'
+alias ttg='cd ~/Documents/workspace/ttg_campagna_vendite; rvm use 1.8.7-p302@ttg --create; rvm wrapper 1.8.7-p302@ttg textmate'
+alias jbb='cd ~/Documents/workspace/job-board; rvm use 1.9.3-p125@job_board --create; rvm wrapper 1.9.3-p125@job_board textmate'
+alias me='. ~/Documents/workspace/tuttosport/script/mate.sh'
 alias sss="script/ec2/ssh-instances"
