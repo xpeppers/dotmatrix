@@ -20,17 +20,22 @@ done
 XPEPPERS_AUTHOR_DIP="Pietro Di Bello"
 XPEPPERS_AUTHOR_GUM="Marco Gulino"
 XPEPPERS_AUTHOR_TOT="Tommaso Torti"
-XPEPPERS_AUTHOR_MAV="Matteo Vaccari"
 XPEPPERS_AUTHOR_QUA="Alberto Quario"
 XPEPPERS_AUTHOR_ILO="Ivan Lombardi Borgia"
-XPEPPERS_AUTHOR_LUP="Luca Pucacco"
 XPEPPERS_AUTHOR_SCH="Marco Schincaglia"
+XPEPPERS_AUTHOR_MOR="Nicola Moretto"
+XPEPPERS_AUTHOR_JOE="Giuseppe Leone"
+XPEPPERS_AUTHOR_PAD="Paolo D'Incau"
+XPEPPERS_AUTHOR_TRK="Marco Trincardi"
 
 #OLD
 XPEPPERS_AUTHOR_FRO="Fabiana Romagnoli"
 XPEPPERS_AUTHOR_FRJ="Jacopo Franzoi"
 XPEPPERS_AUTHOR_SKA="Andrea Schiavini"
 XPEPPERS_AUTHOR_ANK="Antonio Carpentieri"
+XPEPPERS_AUTHOR_LUP="Luca Pucacco"
+XPEPPERS_AUTHOR_MAV="Matteo Vaccari"
+
 
 hcd() {
   cd "$XPEPPERS_DIR/$1"
