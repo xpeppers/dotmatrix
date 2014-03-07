@@ -40,13 +40,16 @@ export AWS_CLOUDWATCH_HOME="/usr/local/CloudWatch"
 export AWS_AUTO_SCALING_HOME="/usr/local/AutoScaling"
 
 export JAVA_HOME='/Library/Java/Home/'
-export PATH="/usr/local/AutoScaling/bin:/usr/local/CloudWatch/bin:/usr/local/ec2-ami-tools/bin:/usr/local/RDSCli/bin:/usr/local/ec2-api-tools/bin:/usr/local/ElasticLoadBalancing/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:$HOME/.rvm/bin"
 
-# This loads RVM into a shell session
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" 
+PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+
+# autojump activation
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 source $ZSH/oh-my-zsh.sh
 
+# This loads RVM into a shell session
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 source $HOME/.xpeppersrc
 source $HOME/.aliasesrc
-
